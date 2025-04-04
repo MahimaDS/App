@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="MDADM - Your ultimate destination for online gaming entertainment">
+    <meta name="theme-color" content="#1a1a1a">
+    <title>MDADM - Register</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Inline script to ensure mobile menu always works -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Direct mobile menu implementation
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const mobileNav = document.querySelector('.mobile-nav');
+            
+            if (mobileMenuBtn && mobileNav) {
+                mobileMenuBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    mobileNav.classList.toggle('active');
+                    document.body.classList.toggle('mobile-menu-open');
+                    console.log('Mobile menu toggled directly from inline script');
+                });
+                
+                document.addEventListener('click', function(e) {
+                    if (mobileNav.classList.contains('active') && 
+                        !mobileNav.contains(e.target) && 
+                        !mobileMenuBtn.contains(e.target)) {
+                        mobileNav.classList.remove('active');
+                        document.body.classList.remove('mobile-menu-open');
+                    }
+                });
+            }
+        });
+    </script>
+</head>
+<body class="auth-page">
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-left">
+                <button class="mobile-menu-btn" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="logo">
+                    <h1>MDADM</h1>
+                </div>
+            </div>
+            
+            <div class="navbar-middle">
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="games.html">Games</a>
+                    <a href="#">Categories</a>
+                    <a href="favorites.html">Favorites</a>
+                    <a href="profile.html">Profile</a>
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search games..." aria-label="Search games">
+                    <button aria-label="Search"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+
+            <div class="navbar-right">
+                <!-- Auth Links (shown when not logged in) -->
+                <div class="auth-links">
+                    <a href="login.html" class="auth-button">Login</a>
+                    <a href="register.html" class="auth-button active">Register</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-nav">
+        <div class="mobile-nav-links">
+            <a href="index.html"><i class="fas fa-home"></i>Home</a>
+            <a href="games.html"><i class="fas fa-gamepad"></i>Games</a>
+            <a href="#"><i class="fas fa-list"></i>Categories</a>
+            <a href="favorites.html"><i class="fas fa-heart"></i>Favorites</a>
+            <a href="profile.html"><i class="fas fa-user"></i>Profile</a>
+            <a href="rewards.html"><i class="fas fa-gift"></i>Rewards</a>
+        </div>
+        <div class="mobile-user-section">
+            <div class="mobile-auth-links">
+                <a href="login.html">Login</a>
+                <a href="register.html" class="active">Register</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="auth-container">
+        <div class="auth-box">
+            <div class="auth-header">
+                <h1>MDADM</h1>
+                <p>Create your account and start gaming!</p>
+            </div>
+            <form id="registerForm" class="auth-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="username" name="username" required minlength="3">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" name="password" required minlength="6">
+                        <i class="fas fa-eye toggle-password"></i>
+                    </div>
+                    <div class="password-strength">
+                        <div class="password-strength-bar"></div>
+                    </div>
+                    <div class="password-requirements">
+                        <p>Password must contain:</p>
+                        <ul>
+                            <li id="length">At least 6 characters</li>
+                            <li id="uppercase">One uppercase letter</li>
+                            <li id="lowercase">One lowercase letter</li>
+                            <li id="number">One number</li>
+                            <li id="special">One special character</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="confirmPassword" name="confirmPassword" required>
+                        <i class="fas fa-eye toggle-password"></i>
+                    </div>
+                </div>
+                <div class="form-group terms">
+                    <label class="remember">
+                        <input type="checkbox" id="terms" required>
+                        <span>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
+                    </label>
+                </div>
+                <button type="submit" class="auth-button">Create Account</button>
+                
+                <div class="social-login">
+                    <p>Or register with:</p>
+                    <div class="social-buttons">
+                        <button type="button" class="social-button google">
+                            <i class="fab fa-google"></i>
+                            Google
+                        </button>
+                        <button type="button" class="social-button facebook">
+                            <i class="fab fa-facebook-f"></i>
+                            Facebook
+                        </button>
+                        <button type="button" class="social-button twitter">
+                            <i class="fab fa-twitter"></i>
+                            Twitter
+                        </button>
+                    </div>
+                </div>
+
+                <div class="auth-footer">
+                    <p>Already have an account? <a href="login.html">Login</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="register.js"></script>
+</body>
+</html> 

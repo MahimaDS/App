@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="MDADM - Your gaming profile">
+    <meta name="theme-color" content="#1a1a1a">
+    <title>MDADM - Profile</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-left">
+                <button class="mobile-menu-btn" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="logo">
+                    <h1>MDADM</h1>
+                </div>
+            </div>
+            
+            <div class="navbar-middle">
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="games.html">Games</a>
+                    <a href="#">Categories</a>
+                    <a href="favorites.html">Favorites</a>
+                    <a href="profile.html" class="active">Profile</a>
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search games..." aria-label="Search games">
+                    <button aria-label="Search"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+
+            <div class="navbar-right">
+                <!-- Rewards Indicator -->
+                <a href="rewards.html" class="navbar-rewards">
+                    <div class="rewards-icon">
+                        <i class="fas fa-gift"></i>
+                        <span class="rewards-badge">!</span>
+                    </div>
+                    <div class="rewards-preview">
+                        <div class="preview-item">
+                            <i class="fas fa-coins"></i>
+                            <span id="nav-coins">0</span>
+                        </div>
+                        <div class="preview-item">
+                            <i class="fas fa-gem"></i>
+                            <span id="nav-gems">0</span>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Auth Links (shown when not logged in) -->
+                <div class="auth-links">
+                    <a href="login.html" class="auth-button">Login</a>
+                    <a href="register.html" class="auth-button">Register</a>
+                </div>
+                <!-- User Links (shown when logged in) -->
+                <div class="user-links">
+                    <div class="user-profile-container">
+                        <a href="profile.html" class="profile-link">
+                            <i class="fas fa-user-circle"></i>
+                            <span class="profile-text">Profile</span>
+                        </a>
+                        <button class="logout-btn">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span class="logout-text">Logout</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-nav">
+        <div class="mobile-nav-links">
+            <a href="index.html"><i class="fas fa-home"></i>Home</a>
+            <a href="games.html"><i class="fas fa-gamepad"></i>Games</a>
+            <a href="#"><i class="fas fa-list"></i>Categories</a>
+            <a href="favorites.html"><i class="fas fa-heart"></i>Favorites</a>
+            <a href="profile.html" class="active"><i class="fas fa-user"></i>Profile</a>
+            <a href="rewards.html"><i class="fas fa-gift"></i>Rewards</a>
+        </div>
+        <div class="mobile-user-section">
+            <div class="mobile-user-balance">
+                <div class="mobile-balance-item">
+                    <i class="fas fa-coins"></i>
+                    <span id="mobile-coins">0</span>
+                </div>
+                <div class="mobile-balance-item">
+                    <i class="fas fa-gem"></i>
+                    <span id="mobile-gems">0</span>
+                </div>
+            </div>
+            <!-- Mobile Auth Links (shown when not logged in) -->
+            <div class="mobile-auth-links">
+                <a href="login.html">Login</a>
+                <a href="register.html">Register</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Wrapper -->
+    <div class="main-content-wrapper">
+        <!-- Profile Hero Section -->
+        <div class="profile-hero">
+            <div class="profile-cover-image">
+                <div class="cover-overlay"></div>
+                <button class="change-cover-btn">
+                    <i class="fas fa-camera"></i>
+                </button>
+            </div>
+            
+            <div class="container">
+                <div class="profile-header">
+                    <div class="profile-avatar-wrapper">
+                        <div class="profile-avatar">
+                            <img src="https://via.placeholder.com/150" alt="Profile Avatar" id="profileAvatar">
+                            <div class="level-badge">
+                                <span id="userLevel">25</span>
+                            </div>
+                        </div>
+                        <button class="change-avatar-btn">
+                            <i class="fas fa-camera"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="profile-info">
+                        <div class="profile-name-status">
+                            <h1 id="profileUsername">GameMaster</h1>
+                            <span class="profile-status online">
+                                <i class="fas fa-circle"></i> Online
+                            </span>
+                        </div>
+                        <p class="profile-bio" id="profileBio">Passionate gamer with a love for strategy and adventure games. Always looking for new challenges!</p>
+                        <div class="profile-stats">
+                            <div class="stat">
+                                <span class="stat-value" id="gamesPlayed">157</span>
+                                <span class="stat-label">Games Played</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value" id="favoriteGames">32</span>
+                                <span class="stat-label">Favorites</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value" id="achievements">89</span>
+                                <span class="stat-label">Achievements</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value" id="totalXp">12.8K</span>
+                                <span class="stat-label">Total XP</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-actions">
+                        <button class="edit-profile-btn">
+                            <i class="fas fa-edit"></i>
+                            Edit Profile
+                        </button>
+                        <div class="user-balance">
+                            <div class="balance-item">
+                                <i class="fas fa-coins"></i>
+                                <span id="user-coins">2,450</span>
+                            </div>
+                            <div class="balance-item">
+                                <i class="fas fa-gem"></i>
+                                <span id="user-gems">175</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Content -->
+        <div class="profile-content container">
+            <!-- Profile Tabs -->
+            <div class="profile-tabs">
+                <button class="tab-btn active" data-tab="overview">
+                    <i class="fas fa-home"></i>
+                    <span>Overview</span>
+                </button>
+                <button class="tab-btn" data-tab="achievements">
+                    <i class="fas fa-trophy"></i>
+                    <span>Achievements</span>
+                </button>
+                <button class="tab-btn" data-tab="history">
+                    <i class="fas fa-history"></i>
+                    <span>Game History</span>
+                </button>
+                <button class="tab-btn" data-tab="favorites">
+                    <i class="fas fa-heart"></i>
+                    <span>Favorites</span>
+                </button>
+                <button class="tab-btn" data-tab="friends">
+                    <i class="fas fa-users"></i>
+                    <span>Friends</span>
+                </button>
+                <button class="tab-btn" data-tab="settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </button>
+            </div>
+
+            <!-- Tab Content -->
+            <div class="tab-content">
+                <!-- Overview Tab -->
+                <div class="tab-pane active" id="overview">
+                    <!-- Progress Section -->
+                    <div class="profile-section progress-section">
+                        <div class="section-header">
+                            <h2>Game Progress</h2>
+                        </div>
+                        <div class="level-progress">
+                            <div class="level-info">
+                                <span class="current-level">Level 25</span>
+                                <span class="next-level">Level 26</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 75%"></div>
+                            </div>
+                            <div class="xp-info">
+                                <span>7,500 / 10,000 XP</span>
+                            </div>
+                        </div>
+                        <div class="daily-challenges">
+                            <h3>Daily Challenges</h3>
+                            <div class="challenge-list">
+                                <div class="challenge-item completed">
+                                    <div class="challenge-info">
+                                        <h4>Play 3 Games</h4>
+                                        <div class="challenge-progress">
+                                            <div class="progress-bar">
+                                                <div class="progress-fill" style="width: 100%"></div>
+                                            </div>
+                                            <span>3/3</span>
+                                        </div>
+                                    </div>
+                                    <div class="challenge-reward">
+                                        <i class="fas fa-coins"></i>
+                                        <span>50</span>
+                                    </div>
+                                </div>
+                                <div class="challenge-item">
+                                    <div class="challenge-info">
+                                        <h4>Win a Strategy Game</h4>
+                                        <div class="challenge-progress">
+                                            <div class="progress-bar">
+                                                <div class="progress-fill" style="width: 0%"></div>
+                                            </div>
+                                            <span>0/1</span>
+                                        </div>
+                                    </div>
+                                    <div class="challenge-reward">
+                                        <i class="fas fa-gem"></i>
+                                        <span>5</span>
+                                    </div>
+                                </div>
+                                <div class="challenge-item in-progress">
+                                    <div class="challenge-info">
+                                        <h4>Play 5 Different Categories</h4>
+                                        <div class="challenge-progress">
+                                            <div class="progress-bar">
+                                                <div class="progress-fill" style="width: 60%"></div>
+                                            </div>
+                                            <span>3/5</span>
+                                        </div>
+                                    </div>
+                                    <div class="challenge-reward">
+                                        <i class="fas fa-coins"></i>
+                                        <span>100</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activity Section -->
+                    <div class="profile-section activity-section">
+                        <div class="section-header">
+                            <h2>Recent Activity</h2>
+                            <a href="#" class="view-all-link">View All</a>
+                        </div>
+                        <div class="activity-list" id="recentActivity">
+                            <div class="activity-item">
+                                <div class="activity-icon game-played">
+                                    <i class="fas fa-gamepad"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <div class="activity-header">
+                                        <h3>Played Medieval Kingdom</h3>
+                                        <span class="activity-time">2 hours ago</span>
+                                    </div>
+                                    <p>Reached level 12 and unlocked the "Master Strategist" achievement</p>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon achievement">
+                                    <i class="fas fa-trophy"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <div class="activity-header">
+                                        <h3>Unlocked Achievement</h3>
+                                        <span class="activity-time">Yesterday</span>
+                                    </div>
+                                    <p>Earned "Speed Demon" for completing Space Shooter in under 20 minutes</p>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon favorite-added">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <div class="activity-header">
+                                        <h3>Added to Favorites</h3>
+                                        <span class="activity-time">2 days ago</span>
+                                    </div>
+                                    <p>Added "Dragon Quest" to your favorites list</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Favorite Games Section -->
+                    <div class="profile-section favorites-section">
+                        <div class="section-header">
+                            <h2>Favorite Games</h2>
+                            <a href="#" class="view-all-link">View All</a>
+                        </div>
+                        <div class="game-grid" id="favoriteGamesGrid">
+                            <!-- Favorite games will be dynamically added here -->
+                            <div class="game-card">
+                                <div class="game-image">
+                                    <img src="https://images.unsplash.com/photo-1560419015-7c427e8ae5ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Dragon Quest">
+                                    <div class="game-category">RPG</div>
+                                    <button class="favorite-btn active" aria-label="Remove from favorites">
+                                        <i class="fas fa-heart"></i>
+                                    </button>
+                                </div>
+                                <div class="game-info">
+                                    <h3>Dragon Quest</h3>
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                        <span>4.8</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="game-card">
+                                <div class="game-image">
+                                    <img src="https://images.unsplash.com/photo-1519074069390-a79c8b701cf6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Medieval Kingdom">
+                                    <div class="game-category">Strategy</div>
+                                    <button class="favorite-btn active" aria-label="Remove from favorites">
+                                        <i class="fas fa-heart"></i>
+                                    </button>
+                                </div>
+                                <div class="game-info">
+                                    <h3>Medieval Kingdom</h3>
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <span>4.9</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="game-card">
+                                <div class="game-image">
+                                    <img src="https://images.unsplash.com/photo-1596838132731-31a6de564f3b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Space Shooter">
+                                    <div class="game-category">Action</div>
+                                    <button class="favorite-btn active" aria-label="Remove from favorites">
+                                        <i class="fas fa-heart"></i>
+                                    </button>
+                                </div>
+                                <div class="game-info">
+                                    <h3>Space Shooter</h3>
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <span>4.4</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="game-card">
+                                <div class="game-image">
+                                    <img src="https://images.unsplash.com/photo-1614732414444-096e5f1122d5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Space Adventure">
+                                    <div class="game-category">Adventure</div>
+                                    <button class="favorite-btn active" aria-label="Remove from favorites">
+                                        <i class="fas fa-heart"></i>
+                                    </button>
+                                </div>
+                                <div class="game-info">
+                                    <h3>Space Adventure</h3>
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                        <span>4.8</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Other tabs (hidden by default) -->
+                <div class="tab-pane" id="achievements">
+                    <!-- Achievement content will be loaded here -->
+                    <div class="profile-section achievements-section">
+                        <div class="section-header">
+                            <h2>Your Achievements</h2>
+                            <div class="achievement-stats">
+                                <span>89/250 Unlocked</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 35.6%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="achievement-categories">
+                            <button class="category-btn active" data-category="all">All</button>
+                            <button class="category-btn" data-category="recent">Recent</button>
+                            <button class="category-btn" data-category="rare">Rare</button>
+                            <button class="category-btn" data-category="common">Common</button>
+                            <button class="category-btn" data-category="locked">Locked</button>
+                        </div>
+                        <div class="achievements-grid" id="achievementsGrid">
+                            <!-- Achievement items will be dynamically added here -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane" id="history">
+                    <!-- Game history content will be loaded here -->
+                </div>
+
+                <div class="tab-pane" id="favorites">
+                    <!-- Favorites content will be loaded here -->
+                </div>
+
+                <div class="tab-pane" id="friends">
+                    <!-- Friends content will be loaded here -->
+                </div>
+
+                <div class="tab-pane" id="settings">
+                    <!-- Settings form will be loaded here -->
+                    <div class="profile-section settings-section">
+                        <div class="section-header">
+                            <h2>Account Settings</h2>
+                        </div>
+                        <form id="profileSettingsForm" class="settings-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="username">Username</label>
+                                    <input type="text" id="username" name="username" value="GameMaster" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" name="email" value="example@mdadm.com" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="bio">Bio</label>
+                                <textarea id="bio" name="bio" rows="4">Passionate gamer with a love for strategy and adventure games. Always looking for new challenges!</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="country">Country</label>
+                                <select id="country" name="country">
+                                    <option value="us">United States</option>
+                                    <option value="ca">Canada</option>
+                                    <option value="uk">United Kingdom</option>
+                                    <option value="au">Australia</option>
+                                    <option value="jp">Japan</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-section">
+                                <h3>Privacy Settings</h3>
+                                <div class="form-group toggle-group">
+                                    <label for="showStatus">Show Online Status</label>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" id="showStatus" name="showStatus" checked>
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                                <div class="form-group toggle-group">
+                                    <label for="showActivity">Share Activity</label>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" id="showActivity" name="showActivity" checked>
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                                <div class="form-group toggle-group">
+                                    <label for="showFriends">Show Friends List</label>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" id="showFriends" name="showFriends" checked>
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-section">
+                                <h3>Notification Settings</h3>
+                                <div class="form-group toggle-group">
+                                    <label for="emailNotifications">Email Notifications</label>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" id="emailNotifications" name="emailNotifications" checked>
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                                <div class="form-group toggle-group">
+                                    <label for="gameUpdates">Game Updates</label>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" id="gameUpdates" name="gameUpdates" checked>
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                                <div class="form-group toggle-group">
+                                    <label for="friendRequests">Friend Requests</label>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" id="friendRequests" name="friendRequests" checked>
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                                <div class="form-group toggle-group">
+                                    <label for="achievementAlerts">Achievement Alerts</label>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" id="achievementAlerts" name="achievementAlerts" checked>
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-action">
+                                <button type="submit" class="save-settings-btn">Save Changes</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- End of main-content-wrapper -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content container">
+            <div class="footer-section">
+                <h3>About MDADM</h3>
+                <p>Your ultimate destination for online gaming entertainment.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="games.html">Games</a></li>
+                    <li><a href="#">Categories</a></li>
+                    <li><a href="favorites.html">Favorites</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 MDADM. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="profile.js"></script>
+</body>
+</html> 

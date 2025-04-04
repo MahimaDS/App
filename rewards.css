@@ -1,0 +1,1602 @@
+/* Rewards Section */
+.rewards-section {
+    padding: 50px 0;
+    background-color: #f0f4f8;
+}
+
+.rewards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+.rewards-section .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.reward-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.reward-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.reward-header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #4a6cf7, #2550e9);
+    color: white;
+}
+
+.reward-header i {
+    font-size: 1.5rem;
+    margin-right: 15px;
+}
+
+.reward-header h3 {
+    font-size: 1.4rem;
+    margin: 0;
+}
+
+.reward-content {
+    padding: 20px;
+}
+
+.reward-description {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+/* Daily Rewards */
+.daily-streak {
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: #333;
+}
+
+.reward-calendar {
+    margin-bottom: 20px;
+}
+
+.day-rewards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;
+    padding: 12px 8px;
+    position: relative;
+}
+
+.day-reward {
+    background: rgba(255, 255, 255, 0.07);
+    border-radius: 12px;
+    padding: 10px 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    min-height: 70px;
+    aspect-ratio: 1 / 1.2;
+}
+
+.day-reward.active {
+    background: #e8f4ff;
+    border-color: #2563eb;
+}
+
+.day-reward.claimed {
+    background: #e8f9ee;
+    border-color: #10b981;
+}
+
+.day-reward.special {
+    grid-column: 3 / span 2;
+    grid-row: 2;
+    background: linear-gradient(135deg, rgba(241, 196, 15, 0.2), rgba(243, 156, 18, 0.2));
+    border: 1px solid rgba(241, 196, 15, 0.3);
+    aspect-ratio: auto;
+}
+
+.day-number {
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+.day-gift {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.8rem;
+}
+
+.day-gift i {
+    color: #f59e0b;
+    margin-bottom: 3px;
+}
+
+.day-gift i.fa-gem {
+    color: #ec4899;
+}
+
+.claim-btn, .spin-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 12px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-bottom: 15px;
+}
+
+.claim-btn:hover, .spin-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+.claim-btn:disabled, .spin-btn:disabled {
+    background: #a0aec0;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.claim-btn i, .spin-btn i {
+    margin-right: 8px;
+}
+
+.claim-status, .spin-result {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Lucky Spin */
+.spin-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    color: #444;
+}
+
+.spin-wheel-container {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    margin: 25px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.spin-wheel {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    background-color: #fff;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 0 0 8px #f0f0f0, 0 0 0 10px #ddd;
+    transition: transform 4s cubic-bezier(0.17, 0.67, 0.12, 0.99);
+}
+
+.wheel-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 5px #333, 0 0 0 8px #f0f0f0;
+    z-index: 2;
+}
+
+.wheel-segment {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    transform-origin: bottom right;
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    background-color: var(--color, #ccc);
+}
+
+.wheel-segment:nth-child(2) {
+    background-color: #FF6B6B;
+    transform: rotate(60deg);
+}
+
+.wheel-segment:nth-child(3) {
+    background-color: #4ECDC4;
+    transform: rotate(120deg);
+}
+
+.wheel-segment:nth-child(4) {
+    background-color: #FFE66D;
+    transform: rotate(180deg);
+}
+
+.wheel-segment:nth-child(5) {
+    background-color: #1A535C;
+    transform: rotate(240deg);
+}
+
+.wheel-segment:nth-child(6) {
+    background-color: #FF9F1C;
+    transform: rotate(300deg);
+}
+
+.wheel-segment:nth-child(7) {
+    background-color: #7B68EE;
+    transform: rotate(360deg);
+}
+
+.wheel-segment span {
+    position: absolute;
+    top: 20%;
+    left: 40%;
+    transform: translate(-50%, -50%) rotate(60deg);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.wheel-pointer {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 30px solid #ff5722;
+    z-index: 2;
+}
+
+.spinning {
+    animation: spin 4s cubic-bezier(0.17, 0.67, 0.12, 0.99) forwards;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(var(--rotate-deg));
+    }
+}
+
+/* Rewards Balance */
+.rewards-balance {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+    padding: 15px 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.balance-item {
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.balance-item i {
+    margin-right: 8px;
+    font-size: 1.3rem;
+}
+
+.balance-item i.fa-coins {
+    color: #f59e0b;
+}
+
+.balance-item i.fa-gem {
+    color: #ec4899;
+}
+
+.rewards-shop-link {
+    display: flex;
+    align-items: center;
+    padding: 8px 15px;
+    background: #2563eb;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    margin-left: auto;
+}
+
+.rewards-shop-link:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+.rewards-shop-link i {
+    margin-right: 8px;
+}
+
+/* Prize Animation */
+.prize-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.prize-animation.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.prize-content {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    transform: scale(0.8);
+    transition: transform 0.5s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.prize-animation.show .prize-content {
+    transform: scale(1);
+}
+
+.prize-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: #f59e0b;
+}
+
+.prize-title {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.prize-amount {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #2563eb;
+}
+
+.prize-button {
+    padding: 12px 30px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.prize-button:hover {
+    background: #1d4ed8;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .rewards-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .day-rewards {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 8px;
+    }
+    
+    .day-rewards div:nth-child(5),
+    .day-rewards div:nth-child(6),
+    .day-rewards div:nth-child(7) {
+        grid-column: span 1;
+    }
+    
+    .day-reward.special {
+        grid-column: 3 / span 2;
+        grid-row: 2;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    .spin-wheel-container {
+        height: 220px;
+    }
+    
+    .spin-wheel {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .rewards-balance {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .rewards-shop-link {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .spin-wheel-container {
+        height: 200px;
+    }
+    
+    .spin-wheel {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .wheel-center {
+        width: 25px;
+        height: 25px;
+    }
+    
+    .wheel-segment span {
+        font-size: 0.75rem;
+        top: 25%;
+    }
+    
+    .wheel-pointer {
+        border-left: 12px solid transparent;
+        border-right: 12px solid transparent;
+        border-top: 25px solid #ff5722;
+    }
+}
+
+/* Touch device enhancements for spin wheel */
+@media (hover: none) {
+    .spin-wheel-container {
+        touch-action: manipulation;
+    }
+    
+    .spin-wheel:active {
+        transform: scale(0.98);
+        transition: transform 0.2s;
+    }
+    
+    .spin-btn:active:not(:disabled) {
+        transform: scale(0.95);
+    }
+}
+
+/* Spin added animation */
+.spin-wheel.spin-added {
+    animation: glow-pulse 2s ease-in-out;
+}
+
+.spin-btn.spin-added {
+    animation: button-pulse 2s ease-in-out;
+}
+
+@keyframes glow-pulse {
+    0% {
+        box-shadow: 0 0 0 8px #f0f0f0, 0 0 0 10px #ddd, 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    30% {
+        box-shadow: 0 0 0 8px #f0f0f0, 0 0 0 10px #4facfe, 0 0 25px rgba(79, 172, 254, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 8px #f0f0f0, 0 0 0 10px #4facfe, 0 0 25px rgba(79, 172, 254, 0.7);
+    }
+    100% {
+        box-shadow: 0 0 0 8px #f0f0f0, 0 0 0 10px #ddd, 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+}
+
+@keyframes button-pulse {
+    0% {
+        background: linear-gradient(135deg, #4facfe, #00f2fe);
+        transform: scale(1);
+    }
+    30% {
+        background: linear-gradient(135deg, #00f2fe, #4caf50);
+        transform: scale(1.05);
+        box-shadow: 0 6px 20px rgba(76, 175, 80, 0.5);
+    }
+    70% {
+        background: linear-gradient(135deg, #00f2fe, #4caf50);
+        transform: scale(1.05);
+        box-shadow: 0 6px 20px rgba(76, 175, 80, 0.5);
+    }
+    100% {
+        background: linear-gradient(135deg, #4facfe, #00f2fe);
+        transform: scale(1);
+        box-shadow: 0 4px 15px rgba(79, 172, 254, 0.4);
+    }
+}
+
+/* Mobile styles for Lucky Spin section */
+@media (max-width: 768px) {
+    .spin-info {
+        flex-direction: column;
+        gap: 5px;
+        align-items: center;
+    }
+    
+    .spin-btn {
+        width: 90%;
+        padding: 10px;
+    }
+    
+    .reward-sparkles {
+        width: 15px;
+        height: 15px;
+    }
+}
+
+/* Navbar Rewards */
+.navbar-rewards {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+    text-decoration: none;
+    position: relative;
+    cursor: pointer;
+}
+
+.rewards-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    color: #fff;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    border-radius: 50%;
+    box-shadow: 0 2px 10px rgba(79, 172, 254, 0.3);
+    transition: all 0.2s ease;
+}
+
+.rewards-icon i {
+    font-size: 1.2rem;
+}
+
+.rewards-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 18px;
+    height: 18px;
+    background-color: #ff5722;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    animation: pulse 2s infinite;
+}
+
+.rewards-preview {
+    display: flex;
+    margin-left: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 5px 10px;
+    transition: all 0.2s ease;
+}
+
+.preview-item {
+    display: flex;
+    align-items: center;
+    margin: 0 5px;
+    color: #fff;
+}
+
+.preview-item i {
+    margin-right: 5px;
+}
+
+.preview-item:first-child i {
+    color: #f59e0b;
+}
+
+.preview-item:last-child i {
+    color: #ec4899;
+}
+
+.navbar-rewards:hover .rewards-icon {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(79, 172, 254, 0.5);
+}
+
+@media (max-width: 768px) {
+    .rewards-preview {
+        display: none;
+    }
+    
+    .navbar-rewards {
+        margin-right: 10px;
+    }
+    
+    .rewards-icon {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-rewards {
+        margin-right: 5px;
+    }
+    
+    .rewards-icon {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .rewards-icon i {
+        font-size: 1rem;
+    }
+}
+
+.rewards-icon.has-rewards {
+    animation: gentle-bounce 2s infinite;
+}
+
+@keyframes gentle-bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-3px);
+    }
+}
+
+.highlight-section {
+    position: relative;
+    animation: section-highlight 2s;
+}
+
+@keyframes section-highlight {
+    0% {
+        box-shadow: 0 0 0 0 rgba(79, 172, 254, 0);
+    }
+    30% {
+        box-shadow: 0 0 0 15px rgba(79, 172, 254, 0.2);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(79, 172, 254, 0.2);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(79, 172, 254, 0);
+    }
+}
+
+/* Invite Friends Section */
+.invite-friends .reward-header i {
+    color: #6366f1;
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.invite-info {
+    display: flex;
+    justify-content: space-around;
+    margin: 15px 0;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 15px 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.invite-info::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, 
+                rgba(99, 102, 241, 0.1), 
+                rgba(79, 70, 229, 0.1));
+    animation: gentle-float 4s ease-in-out infinite alternate;
+}
+
+.invite-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.invite-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #e2e8f0;
+    text-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+}
+
+.invite-label {
+    font-size: 0.85rem;
+    color: #a8b2d1;
+    font-weight: 500;
+    margin-top: 5px;
+}
+
+.invite-rewards-list {
+    margin: 20px 0;
+}
+
+.invite-reward-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.invite-reward-item:hover {
+    transform: translateX(5px);
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.invite-circle {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    margin-right: 15px;
+    color: #fff;
+    box-shadow: 0 4px 6px rgba(99, 102, 241, 0.25);
+}
+
+.invite-reward-info {
+    flex-grow: 1;
+}
+
+.invite-reward-info p {
+    margin: 0 0 5px;
+    font-weight: 500;
+    color: #e2e8f0;
+}
+
+.invite-reward-value {
+    font-weight: 700;
+    color: #f8fafc;
+    display: flex;
+    align-items: center;
+    font-size: 0.95rem;
+}
+
+.invite-reward-value i {
+    margin-right: 5px;
+    color: #fbbf24;
+}
+
+.invite-reward-value i.fa-gem {
+    color: #ec4899;
+}
+
+.invite-reward-value i.fa-crown {
+    color: #f59e0b;
+}
+
+.special-invite {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(79, 70, 229, 0.2));
+    border-left: 3px solid #6366f1;
+}
+
+.invitation-code {
+    margin: 20px 0;
+}
+
+.invitation-code label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+    color: #a8b2d1;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.code-container {
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.code-container input {
+    background: transparent;
+    border: none;
+    color: #f8fafc;
+    padding: 12px 15px;
+    flex-grow: 1;
+    font-family: 'Courier New', monospace;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.code-container input:focus {
+    outline: none;
+}
+
+.copy-btn {
+    background: rgba(99, 102, 241, 0.3);
+    border: none;
+    color: #f8fafc;
+    padding: 12px 15px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.copy-btn:hover {
+    background: rgba(99, 102, 241, 0.5);
+}
+
+.copy-btn:active {
+    background: rgba(99, 102, 241, 0.7);
+}
+
+/* Watch Videos Section */
+.watch-videos .reward-header i {
+    color: #ef4444;
+    background: linear-gradient(135deg, #ef4444, #b91c1c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.video-rewards-progress {
+    margin: 20px 0;
+    position: relative;
+}
+
+.progress-circles {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.progress-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    color: #e2e8f0;
+    font-weight: 700;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.progress-circle.watched {
+    background: linear-gradient(135deg, #10b981, #059669);
+    border-color: #10b981;
+    transform: scale(1.05);
+}
+
+.progress-circle.active {
+    background: linear-gradient(135deg, #ef4444, #b91c1c);
+    border-color: #ef4444;
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.5);
+    transform: scale(1.1);
+}
+
+.progress-circle.active::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.5), rgba(185, 28, 28, 0.5));
+    z-index: -1;
+    animation: pulse 2s infinite;
+}
+
+.progress-bar {
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    z-index: 1;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #10b981, #059669, #ef4444);
+    border-radius: 3px;
+    transition: width 0.5s ease;
+}
+
+.progress-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    font-size: 0.75rem;
+    color: #a8b2d1;
+}
+
+.video-reward-info {
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 15px;
+    margin: 15px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.video-reward-info::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, 
+                rgba(239, 68, 68, 0.1), 
+                rgba(185, 28, 28, 0.1));
+    animation: gentle-float 3s ease-in-out infinite alternate;
+}
+
+.video-reward-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #fbbf24, #d97706);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+}
+
+.video-reward-icon i {
+    font-size: 1.3rem;
+    color: #ffffff;
+}
+
+.video-reward-text {
+    flex-grow: 1;
+    position: relative;
+    z-index: 2;
+    color: #e2e8f0;
+}
+
+.video-reward-text span {
+    font-weight: 700;
+    color: #fbbf24;
+}
+
+#watch-video-btn {
+    background: linear-gradient(90deg, #ef4444, #b91c1c);
+}
+
+#watch-video-btn:hover {
+    background: linear-gradient(90deg, #ef4444, #dc2626);
+    box-shadow: 0 8px 20px rgba(239, 68, 68, 0.4);
+}
+
+/* Responsive styles for new reward cards */
+@media (max-width: 992px) {
+    .invite-info {
+        padding: 12px 8px;
+    }
+    
+    .invite-value {
+        font-size: 1.6rem;
+    }
+    
+    .progress-circle {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .progress-bar {
+        top: 17px;
+    }
+}
+
+@media (max-width: 768px) {
+    .invite-rewards-list {
+        margin: 15px 0;
+    }
+    
+    .invite-reward-item {
+        padding: 8px;
+    }
+    
+    .invite-circle {
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+    }
+    
+    .progress-circles {
+        margin-bottom: 10px;
+    }
+    
+    .progress-circle {
+        width: 30px;
+        height: 30px;
+        font-size: 0.8rem;
+    }
+    
+    .progress-bar {
+        top: 15px;
+        left: 15px;
+        right: 15px;
+    }
+    
+    .video-reward-info {
+        padding: 10px;
+    }
+    
+    .video-reward-icon {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media (max-width: 576px) {
+    .invite-info {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .video-rewards-progress {
+        margin: 15px 0;
+    }
+    
+    .progress-circle {
+        width: 25px;
+        height: 25px;
+    }
+    
+    .progress-bar {
+        top: 12px;
+    }
+    
+    .progress-labels {
+        font-size: 0.65rem;
+    }
+}
+
+/* Video Modal Styles */
+.video-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.video-modal-content {
+    width: 90%;
+    max-width: 600px;
+    background: #16213e;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.video-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    background: linear-gradient(90deg, #ef4444, #b91c1c);
+    color: white;
+}
+
+.video-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.close-video {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.video-container {
+    padding: 30px;
+    text-align: center;
+}
+
+.video-placeholder {
+    width: 100%;
+    height: 240px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #e2e8f0;
+}
+
+.video-placeholder i {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: #ef4444;
+}
+
+.video-footer {
+    padding: 15px 20px;
+    background: rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+}
+
+.collect-reward {
+    background: linear-gradient(90deg, #4361ee, #3a0ca3);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+}
+
+/* Media queries for video modal */
+@media (max-width: 768px) {
+    .video-modal-content {
+        width: 95%;
+    }
+    
+    .video-placeholder {
+        height: 200px;
+    }
+}
+
+/* Responsive styles for rewards section */
+@media (max-width: 1400px) {
+    .rewards-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+}
+
+@media (max-width: 992px) {
+    .rewards-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .rewards-section .container {
+        padding: 0 20px;
+    }
+    
+    .reward-card {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    .timer-countdown {
+        font-size: 1.3rem;
+    }
+    
+    .rewards-balance {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .rewards-shop-link {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .reward-header {
+        padding: 15px;
+    }
+    
+    .reward-content {
+        padding: 20px 15px;
+    }
+    
+    .reward-description {
+        font-size: 0.9rem;
+    }
+    
+    .day-rewards {
+        grid-template-columns: repeat(auto-fill, minmax(65px, 1fr));
+        gap: 8px;
+        padding: 8px 5px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .day-reward {
+        min-width: 65px;
+        padding: 8px 5px;
+    }
+    
+    .day-number {
+        font-size: 0.8rem;
+    }
+    
+    .day-gift i {
+        font-size: 1.2rem;
+    }
+    
+    .day-gift span {
+        font-size: 0.8rem;
+    }
+    
+    .claim-btn, .spin-btn, #watch-video-btn, #share-invite {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+    
+    .timer-container {
+        padding: 8px;
+    }
+    
+    .timer-label {
+        font-size: 0.75rem;
+    }
+    
+    .timer-countdown {
+        font-size: 1.2rem;
+    }
+    
+    .special-badge {
+        font-size: 0.55rem;
+    }
+    
+    .spin-wheel-container {
+        height: 220px;
+        margin: 20px 0;
+    }
+    
+    .spin-wheel {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .invitation-code label {
+        font-size: 0.75rem;
+    }
+    
+    .code-container input {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+    
+    .copy-btn {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .reward-card {
+        border-radius: 15px;
+    }
+    
+    .reward-header h3 {
+        font-size: 1.2rem;
+    }
+    
+    .reward-description {
+        font-size: 0.85rem;
+    }
+    
+    .day-rewards {
+        grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+        gap: 6px;
+    }
+    
+    .day-reward {
+        min-width: 60px;
+        padding: 6px 4px;
+    }
+    
+    .day-number {
+        font-size: 0.75rem;
+        margin-bottom: 3px;
+    }
+    
+    .day-gift i {
+        font-size: 1.1rem;
+        margin-bottom: 2px;
+    }
+    
+    .day-gift span {
+        font-size: 0.75rem;
+    }
+    
+    .special-badge {
+        font-size: 0.5rem;
+    }
+    
+    .claim-btn, .spin-btn, #watch-video-btn, #share-invite {
+        padding: 10px;
+        font-size: 0.85rem;
+    }
+    
+    .claim-btn i, .spin-btn i {
+        font-size: 0.9rem;
+    }
+    
+    .spin-wheel-container {
+        height: 180px;
+    }
+    
+    .spin-wheel {
+        width: 170px;
+        height: 170px;
+    }
+    
+    .wheel-center {
+        width: 25px;
+        height: 25px;
+    }
+    
+    .invite-value {
+        font-size: 1.5rem;
+    }
+    
+    .invite-label {
+        font-size: 0.75rem;
+    }
+    
+    .progress-circle {
+        width: 30px;
+        height: 30px;
+        font-size: 0.7rem;
+    }
+    
+    .video-reward-info {
+        padding: 10px;
+    }
+    
+    .video-reward-icon {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .video-reward-icon i {
+        font-size: 1.1rem;
+    }
+    
+    .video-reward-text {
+        font-size: 0.85rem;
+    }
+}
+
+/* Fix for timer container on all device sizes */
+.timer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px 0;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.timer-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #a8b2d1;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.timer-countdown {
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: 'Courier New', monospace;
+    color: #f8f9fa;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    animation: pulse-color 3s infinite alternate;
+}
+
+/* Add timer containers to both daily rewards and lucky spin if missing */
+.daily-reward .reward-content .timer-container,
+.lucky-spin .reward-content .timer-container {
+    margin: 15px 0;
+}
+
+/* Make sure all video modals are responsive */
+@media (max-width: 576px) {
+    .video-modal-content {
+        width: 95%;
+        max-width: 100%;
+    }
+    
+    .video-placeholder {
+        height: 160px;
+    }
+    
+    .video-header h3 {
+        font-size: 1rem;
+    }
+    
+    .collect-reward {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Notification Styles */
+.notification.info .notification-content {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+}
+
+.notification.info .notification-content i {
+    color: #3498db;
+}
+
+/* Timer animation */
+@keyframes pulse-color {
+    0% { color: #f8f9fa; text-shadow: 0 0 10px rgba(255, 255, 255, 0.3); }
+    100% { color: #4cc9f0; text-shadow: 0 0 15px rgba(76, 201, 240, 0.6); }
+}
+
+/* Add timer container animation */
+.timer-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg,rgba(255, 138, 0, 0.1), rgba(229, 46, 113, 0.1));
+    animation: gentle-float 3s ease-in-out infinite alternate;
+}
+
+@keyframes gentle-float {
+    0% { transform: translateY(0) scale(1); }
+    100% { transform: translateY(-10px) scale(1.02); }
+}
+
+/* Ensure buttons have disabled state styling */
+.claim-btn:disabled, .spin-btn:disabled, #watch-video-btn:disabled {
+    background: linear-gradient(90deg, #64748b, #475569);
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+    opacity: 0.7;
+}
+
+/* Add mobile-specific touch feedback */
+@media (hover: none) {
+    .day-reward:active, 
+    .invite-reward-item:active,
+    .claim-btn:active,
+    .spin-btn:active,
+    #watch-video-btn:active,
+    #share-invite:active,
+    .copy-btn:active {
+        transform: scale(0.95);
+        transition: transform 0.2s;
+    }
+    
+    .touch-device .day-reward.touch-active {
+        background: rgba(255, 255, 255, 0.15);
+        transform: scale(0.95);
+    }
+}
+
+@media (max-width: 480px) {
+    .day-rewards {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 6px;
+    }
+    
+    .day-reward {
+        min-height: 60px;
+        padding: 6px 3px;
+        aspect-ratio: 1 / 1.1;
+    }
+    
+    .day-reward.special {
+        grid-column: 1 / span 3;
+        grid-row: 3;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 8px 15px;
+        min-height: 60px;
+        aspect-ratio: auto;
+    }
+    
+    .day-reward.special .day-number {
+        margin-bottom: 0;
+        margin-right: 10px;
+    }
+    
+    .day-reward.special .special-badge {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
+}
+  

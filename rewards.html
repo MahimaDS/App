@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="MDADM Rewards Center - Earn rewards, spin to win, and collect daily bonuses">
+    <meta name="theme-color" content="#1a1a1a">
+    <title>MDADM - Rewards Center</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="rewards.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-left">
+                <button class="mobile-menu-btn" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="logo">
+                    <h1>MDADM</h1>
+                </div>
+            </div>
+            
+            <div class="navbar-middle">
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="games.html">Games</a>
+                    <a href="#">Categories</a>
+                    <a href="favorites.html">Favorites</a>
+                    <a href="profile.html">Profile</a>
+                    <a href="rewards.html" class="active">Rewards</a>
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search games..." aria-label="Search games">
+                    <button aria-label="Search"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+
+            <div class="navbar-right">
+                <!-- Rewards Indicator -->
+                <a href="#rewards" class="navbar-rewards">
+                    <div class="rewards-icon">
+                        <i class="fas fa-gift"></i>
+                        <span class="rewards-badge">!</span>
+                    </div>
+                    <div class="rewards-preview">
+                        <div class="preview-item">
+                            <i class="fas fa-coins"></i>
+                            <span id="nav-coins">0</span>
+                        </div>
+                        <div class="preview-item">
+                            <i class="fas fa-gem"></i>
+                            <span id="nav-gems">0</span>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Auth Links (shown when not logged in) -->
+                <div class="auth-links">
+                    <a href="login.html" class="auth-button">Login</a>
+                    <a href="register.html" class="auth-button">Register</a>
+                </div>
+                <!-- User Links (shown when logged in) -->
+                <div class="user-links">
+                    <div class="user-profile-container">
+                        <a href="profile.html" class="profile-link">
+                            <i class="fas fa-user-circle"></i>
+                            <span class="profile-text">Profile</span>
+                        </a>
+                        <button class="logout-btn">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span class="logout-text">Logout</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-nav">
+        <div class="mobile-nav-links">
+            <a href="index.html"><i class="fas fa-home"></i>Home</a>
+            <a href="games.html"><i class="fas fa-gamepad"></i>Games</a>
+            <a href="#"><i class="fas fa-list"></i>Categories</a>
+            <a href="favorites.html"><i class="fas fa-heart"></i>Favorites</a>
+            <a href="profile.html"><i class="fas fa-user"></i>Profile</a>
+            <a href="rewards.html" class="active"><i class="fas fa-gift"></i>Rewards</a>
+        </div>
+        <div class="mobile-user-section">
+            <div class="mobile-user-balance">
+                <div class="mobile-balance-item">
+                    <i class="fas fa-coins"></i>
+                    <span id="mobile-coins">0</span>
+                </div>
+                <div class="mobile-balance-item">
+                    <i class="fas fa-gem"></i>
+                    <span id="mobile-gems">0</span>
+                </div>
+            </div>
+            <!-- Mobile Auth Links (shown when not logged in) -->
+            <div class="mobile-auth-links">
+                <a href="login.html">Login</a>
+                <a href="register.html">Register</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Banner for Rewards -->
+    <section class="rewards-hero">
+        <div class="container">
+            <div class="rewards-hero-content">
+                <h1>Rewards Center</h1>
+                <p>Complete daily tasks, invite friends, and spin the wheel to earn amazing rewards!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rewards Section -->
+    <section id="rewards" class="rewards-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Your Rewards Dashboard</h2>
+            </div>
+            <div class="rewards-container">
+                <div class="reward-card daily-reward">
+                    <div class="reward-header">
+                        <i class="fas fa-calendar-check"></i>
+                        <h3>Daily Rewards</h3>
+                        <div class="reward-badge">
+                            <div class="pulse-dot"></div>
+                            Daily
+                        </div>
+                    </div>
+                    <div class="reward-content">
+                        <p class="reward-description">Log in every day to claim your rewards and build your streak!</p>
+                        <div class="daily-streak">
+                            <p>Current streak: <span id="streak-count">0</span> days</p>
+                            <div class="streak-meter">
+                                <div class="streak-progress" style="width: 30%"></div>
+                            </div>
+                        </div>
+                        <div class="reward-calendar">
+                            <div class="day-rewards">
+                                <div class="day-reward" data-day="1">
+                                    <div class="day-number">Day 1</div>
+                                    <div class="day-gift">
+                                        <i class="fas fa-coins"></i>
+                                        <span>50</span>
+                                    </div>
+                                </div>
+                                <div class="day-reward" data-day="2">
+                                    <div class="day-number">Day 2</div>
+                                    <div class="day-gift">
+                                        <i class="fas fa-coins"></i>
+                                        <span>100</span>
+                                    </div>
+                                </div>
+                                <div class="day-reward" data-day="3">
+                                    <div class="day-number">Day 3</div>
+                                    <div class="day-gift">
+                                        <i class="fas fa-coins"></i>
+                                        <span>150</span>
+                                    </div>
+                                </div>
+                                <div class="day-reward" data-day="4">
+                                    <div class="day-number">Day 4</div>
+                                    <div class="day-gift">
+                                        <i class="fas fa-coins"></i>
+                                        <span>200</span>
+                                    </div>
+                                </div>
+                                <div class="day-reward" data-day="5">
+                                    <div class="day-number">Day 5</div>
+                                    <div class="day-gift">
+                                        <i class="fas fa-gem"></i>
+                                        <span>1</span>
+                                    </div>
+                                </div>
+                                <div class="day-reward" data-day="6">
+                                    <div class="day-number">Day 6</div>
+                                    <div class="day-gift">
+                                        <i class="fas fa-coins"></i>
+                                        <span>300</span>
+                                    </div>
+                                </div>
+                                <div class="day-reward special" data-day="7">
+                                    <div class="day-number">Day 7</div>
+                                    <div class="day-gift">
+                                        <i class="fas fa-gem"></i>
+                                        <span>5</span>
+                                    </div>
+                                    <div class="special-badge">SPECIAL</div>
+                                </div>
+                            </div>
+                        </div>
+                        <button id="claim-daily" class="claim-btn">
+                            <i class="fas fa-gift"></i>
+                            <span>Claim Reward</span>
+                            <div class="btn-glow"></div>
+                        </button>
+                        <div id="daily-claim-status" class="claim-status">Log in daily to claim rewards!</div>
+                    </div>
+                </div>
+                
+                <div class="reward-card invite-friends">
+                    <div class="reward-header">
+                        <i class="fas fa-user-plus"></i>
+                        <h3>Invite Friends & Earn</h3>
+                        <div class="reward-badge">
+                            <div class="pulse-dot"></div>
+                            Bonus
+                        </div>
+                    </div>
+                    <div class="reward-content">
+                        <p class="reward-description">Invite your friends to join and earn big rewards for each friend who signs up!</p>
+                        <div class="invite-info">
+                            <div class="invite-stat">
+                                <div class="invite-value" id="invited-friends">0</div>
+                                <div class="invite-label">Friends Invited</div>
+                            </div>
+                            <div class="invite-stat">
+                                <div class="invite-value" id="earned-rewards">0</div>
+                                <div class="invite-label">Coins Earned</div>
+                            </div>
+                        </div>
+                        <div class="invite-rewards-list">
+                            <div class="invite-reward-item">
+                                <div class="invite-circle">1</div>
+                                <div class="invite-reward-info">
+                                    <p>First Friend</p>
+                                    <div class="invite-reward-value"><i class="fas fa-coins"></i> 500</div>
+                                </div>
+                            </div>
+                            <div class="invite-reward-item">
+                                <div class="invite-circle">5</div>
+                                <div class="invite-reward-info">
+                                    <p>Five Friends</p>
+                                    <div class="invite-reward-value"><i class="fas fa-gem"></i> 10</div>
+                                </div>
+                            </div>
+                            <div class="invite-reward-item special-invite">
+                                <div class="invite-circle">10</div>
+                                <div class="invite-reward-info">
+                                    <p>Ten Friends</p>
+                                    <div class="invite-reward-value"><i class="fas fa-crown"></i> EXCLUSIVE SKIN</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="invitation-code">
+                            <label>Your Invite Code</label>
+                            <div class="code-container">
+                                <input type="text" id="invite-code" value="GAMER1234" readonly>
+                                <button id="copy-invite" class="copy-btn"><i class="fas fa-copy"></i></button>
+                            </div>
+                        </div>
+                        <button id="share-invite" class="claim-btn">
+                            <i class="fas fa-share-alt"></i>
+                            <span>Share Invite</span>
+                            <div class="btn-glow"></div>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="reward-card watch-videos">
+                    <div class="reward-header">
+                        <i class="fas fa-film"></i>
+                        <h3>Watch & Earn</h3>
+                        <div class="reward-badge">
+                            <div class="pulse-dot"></div>
+                            Quick
+                        </div>
+                    </div>
+                    <div class="reward-content">
+                        <p class="reward-description">Watch short videos to earn coins instantly. New videos available every hour!</p>
+                        <div class="video-rewards-progress">
+                            <div class="progress-circles">
+                                <div class="progress-circle watched"><i class="fas fa-check"></i></div>
+                                <div class="progress-circle watched"><i class="fas fa-check"></i></div>
+                                <div class="progress-circle active"><span>3</span></div>
+                                <div class="progress-circle"><span>4</span></div>
+                                <div class="progress-circle"><span>5</span></div>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 40%"></div>
+                            </div>
+                            <div class="progress-labels">
+                                <span>0</span>
+                                <span>100</span>
+                                <span>250</span>
+                                <span>500</span>
+                                <span>1000</span>
+                            </div>
+                        </div>
+                        <div class="timer-container">
+                            <div class="timer-label">Next Video Available In</div>
+                            <div class="timer-countdown" id="video-countdown">00:12:45</div>
+                        </div>
+                        <div class="video-reward-info">
+                            <div class="video-reward-icon">
+                                <i class="fas fa-coins"></i>
+                            </div>
+                            <div class="video-reward-text">
+                                Watch now to earn <span>50 coins</span>
+                            </div>
+                        </div>
+                        <button id="watch-video-btn" class="claim-btn">
+                            <i class="fas fa-play-circle"></i>
+                            <span>Watch Video</span>
+                            <div class="btn-glow"></div>
+                        </button>
+                        <div class="claim-status">Watch short videos to earn rewards!</div>
+                    </div>
+                </div>
+                
+                <div class="reward-card lucky-spin">
+                    <div class="reward-header">
+                        <i class="fas fa-sync-alt"></i>
+                        <h3>Lucky Spin</h3>
+                        <div class="reward-badge spin-badge">
+                            <span class="pulse-dot"></span>
+                            <span>Luck</span>
+                        </div>
+                    </div>
+                    <div class="reward-content">
+                        <div class="reward-description">
+                            <p>Spin the wheel and test your luck for amazing rewards!</p>
+                        </div>
+                        <div class="spin-info">
+                            <p>Spins remaining: <span id="spins-left">3</span></p>
+                            <p>Next free spin: <span id="next-spin-time">23:59:59</span></p>
+                        </div>
+                        <div class="spin-wheel-container">
+                            <div class="reward-sparkles top-left"></div>
+                            <div class="reward-sparkles top-right"></div>
+                            <div class="spin-wheel">
+                                <div class="wheel-center"></div>
+                                <div class="wheel-segment" data-prize="50 Coins" data-color="#FF6B6B">
+                                    <span>50</span>
+                                </div>
+                                <div class="wheel-segment" data-prize="100 Coins" data-color="#4ECDC4">
+                                    <span>100</span>
+                                </div>
+                                <div class="wheel-segment" data-prize="150 Coins" data-color="#FFE66D">
+                                    <span>150</span>
+                                </div>
+                                <div class="wheel-segment" data-prize="200 Coins" data-color="#1A535C">
+                                    <span>200</span>
+                                </div>
+                                <div class="wheel-segment" data-prize="1 Gem" data-color="#FF9F1C">
+                                    <span>1 GEM</span>
+                                </div>
+                                <div class="wheel-segment" data-prize="500 Coins" data-color="#7B68EE">
+                                    <span>500</span>
+                                </div>
+                            </div>
+                            <div class="wheel-pointer"></div>
+                            <div class="reward-sparkles bottom-left"></div>
+                            <div class="reward-sparkles bottom-right"></div>
+                        </div>
+                        <button id="spin-wheel-btn" class="spin-btn">
+                            <i class="fas fa-sync-alt"></i>
+                            <span>Spin Now</span>
+                            <div class="btn-glow"></div>
+                        </button>
+                        <div id="spin-result" class="spin-result"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section-header">
+                <h2>Your Balance</h2>
+            </div>
+            <div class="rewards-balance">
+                <div class="balance-item">
+                    <i class="fas fa-coins"></i>
+                    <span>Your Coins: <strong id="user-coins">0</strong></span>
+                </div>
+                <div class="balance-item">
+                    <i class="fas fa-gem"></i>
+                    <span>Your Gems: <strong id="user-gems">0</strong></span>
+                </div>
+                <a href="#rewards" class="rewards-shop-link">
+                    <i class="fas fa-store"></i>
+                    <span>Visit Rewards Shop</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content container">
+            <div class="footer-section">
+                <h3>About MDADM</h3>
+                <p>Your ultimate destination for online gaming entertainment.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="games.html">Games</a></li>
+                    <li><a href="#">Categories</a></li>
+                    <li><a href="favorites.html">Favorites</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 MDADM. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Video Modal -->
+    <div class="video-modal" id="video-modal">
+        <div class="video-modal-content">
+            <div class="video-header">
+                <h3>Watch and Earn</h3>
+                <button class="close-video"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="video-container">
+                <div class="video-placeholder">
+                    <i class="fas fa-play-circle"></i>
+                    <p>Video will load here</p>
+                </div>
+            </div>
+            <div class="video-footer">
+                <button class="collect-reward" disabled>Continue watching to collect reward</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="rewards.js"></script>
+</body>
+</html> 

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="MDADM - Browse our extensive collection of online games">
+    <meta name="theme-color" content="#1a1a1a">
+    <title>MDADM - All Games</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-left">
+                <button class="mobile-menu-btn" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="logo">
+                    <h1>MDADM</h1>
+                </div>
+            </div>
+            
+            <div class="navbar-middle">
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="games.html" class="active">Games</a>
+                    <a href="#">Categories</a>
+                    <a href="favorites.html">Favorites</a>
+                    <a href="profile.html">Profile</a>
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search games..." aria-label="Search games">
+                    <button aria-label="Search"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+
+            <div class="navbar-right">
+                <!-- Rewards Indicator -->
+                <a href="rewards.html" class="navbar-rewards">
+                    <div class="rewards-icon">
+                        <i class="fas fa-gift"></i>
+                        <span class="rewards-badge">!</span>
+                    </div>
+                    <div class="rewards-preview">
+                        <div class="preview-item">
+                            <i class="fas fa-coins"></i>
+                            <span id="nav-coins">0</span>
+                        </div>
+                        <div class="preview-item">
+                            <i class="fas fa-gem"></i>
+                            <span id="nav-gems">0</span>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Auth Links (shown when not logged in) -->
+                <div class="auth-links">
+                    <a href="login.html" class="auth-button">Login</a>
+                    <a href="register.html" class="auth-button">Register</a>
+                </div>
+                <!-- User Links (shown when logged in) -->
+                <div class="user-links">
+                    <div class="user-profile-container">
+                        <a href="profile.html" class="profile-link">
+                            <i class="fas fa-user-circle"></i>
+                            <span class="profile-text">Profile</span>
+                        </a>
+                        <button class="logout-btn">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span class="logout-text">Logout</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-nav">
+        <div class="mobile-nav-links">
+            <a href="index.html"><i class="fas fa-home"></i>Home</a>
+            <a href="games.html" class="active"><i class="fas fa-gamepad"></i>Games</a>
+            <a href="#"><i class="fas fa-list"></i>Categories</a>
+            <a href="favorites.html"><i class="fas fa-heart"></i>Favorites</a>
+            <a href="profile.html"><i class="fas fa-user"></i>Profile</a>
+            <a href="rewards.html"><i class="fas fa-gift"></i>Rewards</a>
+        </div>
+        <div class="mobile-user-section">
+            <div class="mobile-user-balance">
+                <div class="mobile-balance-item">
+                    <i class="fas fa-coins"></i>
+                    <span id="mobile-coins">0</span>
+                </div>
+                <div class="mobile-balance-item">
+                    <i class="fas fa-gem"></i>
+                    <span id="mobile-gems">0</span>
+                </div>
+            </div>
+            <!-- Mobile Auth Links (shown when not logged in) -->
+            <div class="mobile-auth-links">
+                <a href="login.html">Login</a>
+                <a href="register.html">Register</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Games Hero Section -->
+    <section class="games-hero">
+        <div class="container">
+            <div class="games-hero-content">
+                <h1>All Games</h1>
+                <p>Browse our extensive collection of online games</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Wrapper -->
+    <div class="main-content-wrapper">
+        <!-- Categories Section -->
+        <section class="categories-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Game Categories</h2>
+                </div>
+                <div class="categories-container">
+                    <button class="category-btn active" data-category="all">
+                        <i class="fas fa-border-all"></i>
+                        <span>All Games</span>
+                    </button>
+                    <button class="category-btn" data-category="Action">
+                        <i class="fas fa-bolt"></i>
+                        <span>Action</span>
+                    </button>
+                    <button class="category-btn" data-category="Adventure">
+                        <i class="fas fa-compass"></i>
+                        <span>Adventure</span>
+                    </button>
+                    <button class="category-btn" data-category="Racing">
+                        <i class="fas fa-flag-checkered"></i>
+                        <span>Racing</span>
+                    </button>
+                    <button class="category-btn" data-category="Puzzle">
+                        <i class="fas fa-puzzle-piece"></i>
+                        <span>Puzzle</span>
+                    </button>
+                    <button class="category-btn" data-category="RPG">
+                        <i class="fas fa-dragon"></i>
+                        <span>RPG</span>
+                    </button>
+                    <button class="category-btn" data-category="Strategy">
+                        <i class="fas fa-chess"></i>
+                        <span>Strategy</span>
+                    </button>
+                    <button class="category-btn" data-category="Sports">
+                        <i class="fas fa-basketball-ball"></i>
+                        <span>Sports</span>
+                    </button>
+                    <button class="category-btn" data-category="Horror">
+                        <i class="fas fa-ghost"></i>
+                        <span>Horror</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- All Games Section -->
+        <section id="all-games" class="featured-games">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Browse All Games</h2>
+                    <div class="view-options">
+                        <div class="games-sort">
+                            <select id="games-sort" aria-label="Sort games">
+                                <option value="newest">Newest</option>
+                                <option value="popular">Most Popular</option>
+                                <option value="rating">Highest Rated</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="game-grid full-grid">
+                    <!-- All games will be loaded here by JavaScript -->
+                    <div class="loading">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <span class="loading-text">Loading games...</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div> <!-- End of main-content-wrapper -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content container">
+            <div class="footer-section">
+                <h3>About MDADM</h3>
+                <p>Your ultimate destination for online gaming entertainment.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="games.html">Games</a></li>
+                    <li><a href="#">Categories</a></li>
+                    <li><a href="favorites.html">Favorites</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 MDADM. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="index.js"></script>
+    <script src="games.js"></script>
+</body>
+</html> 
